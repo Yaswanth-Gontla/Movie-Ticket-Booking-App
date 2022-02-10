@@ -1,0 +1,22 @@
+insert into ticketbookingsystem.user values(001,'abc','9052033349','movie');
+insert into ticketbookingsystem.user values(002,'def','9052033349','movie');
+insert into ticketbookingsystem.user values(004,'xyz','9052033349','movie');
+
+
+insert into ticketbookingsystem.seat values(1,'middle','250');
+insert into ticketbookingsystem.seat values(2,'middle','250');
+insert into ticketbookingsystem.seat values(3,'middle','250');
+
+
+insert into ticketbookingsystem.movie 
+values(1,"RRR","Action","Telugu","It is a fictional story about two Indian revolutionaries, Alluri Sitarama Raju and Komaram Bheem");
+insert into ticketbookingsystem.movie 
+values(2,"Radheshyam","Romantic","Telugu","Indian period romantic drama film");
+insert into ticketbookingsystem.movie 
+values(3,"Gangubai","Drama","Hindi","The rise of a simple girl from Kathiawad who had no choice but to embrace the ways of destiny and swing it in her favour");
+
+
+insert into ticketbookingsystem.admin values('mkswetha2001@gmail.com','swetha','3121224666');
+insert into ticketbookingsystem.admin values('deekshitha@gmail.com','deekshitha','3121224666');
+insert into ticketbookingsystem.admin values('yaswanth@gmail.com','yaswanth','3121224666');
+insert into ticketbookingsystem.admin values('mohith@gmail.com','mohith','3121224666');
