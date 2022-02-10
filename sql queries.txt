@@ -1,0 +1,31 @@
+CREATE SCHEMA `ticketbookingsystem` ;
+
+CREATE TABLE `ticketbookingsystem`.`user` (
+  `userId` INT NOT NULL,
+  `password` VARCHAR(45) NOT NULL,
+  `contact` VARCHAR(45) NOT NULL,
+  `role` VARCHAR(45) NULL,
+  PRIMARY KEY (`userId`));
+
+
+CREATE TABLE `ticketbookingsystem`.`seat` (
+  `seatId` INT NOT NULL,
+  `seatNumber` VARCHAR(45) NOT NULL,
+  `type` VARCHAR(45) NOT NULL,
+  `price` DOUBLE NOT NULL);
+
+
+CREATE TABLE `ticketbookingsystem`.`movie` (
+  `movieId` INT NOT NULL,
+  `movieName` VARCHAR(45) NOT NULL,
+  `movieGenre` VARCHAR(45) NOT NULL,
+  `movieLanguage` VARCHAR(45) NOT NULL,
+  `movieDescription` VARCHAR(45) NOT NULL);
+
+
+CREATE TABLE `ticketbookingsystem`.`admin` (
+  `userId` INT NOT NULL,
+  `adminName` VARCHAR(45) NOT NULL,
+  `adminContact` VARCHAR(45) NOT NULL,
+  PRIMARY KEY (`userId`));
+
