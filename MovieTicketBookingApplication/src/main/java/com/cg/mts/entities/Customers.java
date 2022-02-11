@@ -22,6 +22,7 @@ public class Customers {
 	private String customerId;
     private String customerName;
 	private String mobileNumber;
+	private String password;
 	private int noOfTickets;
 	@OneToMany(cascade=CascadeType.ALL)
 	@JoinTable(
@@ -59,7 +60,13 @@ public class Customers {
 	public void setBooking(List<Booking> booking) {
 		this.booking = booking;
 	}
-	public Customers(String customerId, String customerName, String mobileNumber, int noOfTickets,
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public Customers(String customerId, String customerName, String mobileNumber, int noOfTickets,String password,
 			List<Booking> booking) {
 		super();
 		this.customerId = customerId;
@@ -67,6 +74,7 @@ public class Customers {
 		this.mobileNumber = mobileNumber;
 		this.noOfTickets = noOfTickets;
 		this.booking = booking;
+		this.password=password;
 	}
 	public Customers() {
 		super();
@@ -74,7 +82,7 @@ public class Customers {
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(booking, customerId, customerName, mobileNumber, noOfTickets);
+		return Objects.hash(booking, customerId, customerName, mobileNumber,password, noOfTickets);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -87,12 +95,13 @@ public class Customers {
 		Customers other = (Customers) obj;
 		return Objects.equals(booking, other.booking) && Objects.equals(customerId, other.customerId)
 				&& Objects.equals(customerName, other.customerName) && Objects.equals(mobileNumber, other.mobileNumber)
-				&& noOfTickets == other.noOfTickets;
+				&& Objects.equals(password, other.password)&& noOfTickets == other.noOfTickets;
 	}
 	@Override
 	public String toString() {
 		return "Customers [customerId=" + customerId + ", customerName=" + customerName + ", mobileNumber="
-				+ mobileNumber + ", noOfTickets=" + noOfTickets + ", booking=" + booking + "]";
+				+ mobileNumber + ", password=" + password + ", noOfTickets=" + noOfTickets + ", booking=" + booking
+				+ "]";
 	}
 	
 	
