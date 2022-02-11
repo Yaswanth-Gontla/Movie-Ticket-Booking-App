@@ -20,7 +20,7 @@ CREATE TABLE `ticketbookingsystem`.`movie` (
   `movieName` VARCHAR(45) NOT NULL,
   `movieGenre` VARCHAR(45) NOT NULL,
   `movieLanguage` VARCHAR(45) NOT NULL,
-  `movieDescription` VARCHAR(45) NOT NULL);
+  `movieDescription` VARCHAR(250) NOT NULL);
 
 
 CREATE TABLE `ticketbookingsystem`.`admin` (
