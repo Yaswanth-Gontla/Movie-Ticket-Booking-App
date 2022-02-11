@@ -4,7 +4,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.cg.mts.entities.Movies;
 
-public interface IMoviesRepository extends CrudRepository<Movies, Integer>
+public interface IMoviesRepository extends CrudRepository<Movies, Integer>, CustomMovieRepository
 {
 
 }
