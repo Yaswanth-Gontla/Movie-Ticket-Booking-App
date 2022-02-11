@@ -34,15 +34,28 @@ public class IMoviesServiceImpl implements IMoviesService {
 	}
 	
 	@Override
-	public Movies viewMovies(int moviesid) {
+	public Movies viewMovies(int movieId) {
 		// TODO Auto-generated method stub
-		return null;
+		return repository.findById(movieId).get();
 	}
 
 	@Override
 	public List<Movies> viewMovieList() {
 		// TODO Auto-generated method stub
-		return null;
+		List<Movies> list=(List<Movies>) repository.findAll();
+		return list;
+	}
+
+	@Override
+	public List<Movies> getMoviesByLanguage(String movieLanguage) {
+		// TODO Auto-generated method stub
+		return repository.getMoviesByLanguage(movieLanguage);
+	}
+
+	@Override
+	public List<Movies> getMoviesByName(String movieName) {
+		// TODO Auto-generated method stub
+		return repository.getMoviesByName(movieName);
 	}
 
 }
