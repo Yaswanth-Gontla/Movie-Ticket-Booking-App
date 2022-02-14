@@ -19,7 +19,7 @@ public class Customers {
 	@Id
 	@SequenceGenerator(name="mylogic3",initialValue=300,allocationSize=1)
 	@GeneratedValue(strategy=GenerationType.AUTO,generator="mylogic3")
-	private String customerId;
+	private int customerId;
 	private String password;
     private String customerName;
 	private String mobileNumber;
@@ -42,10 +42,10 @@ public class Customers {
 			joinColumns=@JoinColumn(name="customerdetails"),
 			inverseJoinColumns=@JoinColumn(name="bookingdetails"))
 	private List<Booking> booking;
-	public String getCustomerId() {
+	public int getCustomerId() {
 		return customerId;
 	}
-	public void setCustomerId(String customerId) {
+	public void setCustomerId(int customerId) {
 		this.customerId = customerId;
 	}
 	public String getPassword() {
@@ -90,7 +90,7 @@ public class Customers {
 	public void setMovies(List<Movies> movies) {
 		this.movies = movies;
 	}
-	public Customers(String customerId, String password, String customerName, String mobileNumber, int noOfTickets,
+	public Customers(int customerId, String password, String customerName, String mobileNumber, int noOfTickets,
 			List<Events> events, List<Movies> movies, List<Booking> booking) {
 		super();
 		this.customerId = customerId;
