@@ -39,4 +39,16 @@ public class CustomersServiceImpl implements ICustomersService{
 		return repository.findById(customerId).get() ;
 	}
 
-}
+	
+	@Override
+	public Customers getCustomerByName(String customerName) {
+		return repository.getCustomerByName(customerName);
+	}
+
+	
+
+	
+	
+	}
+
+

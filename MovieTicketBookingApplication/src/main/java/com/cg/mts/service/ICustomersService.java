@@ -13,5 +13,12 @@ public interface ICustomersService {
 	public List<Customers> getAllCustomers();
 	public boolean removeCustomerById(int customerId);
 	public Customers getCustomerById(int customerId);
+	public Customers getCustomerByName(String customerName);
+
+
+
+	
+
+
 	
 }
