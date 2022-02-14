@@ -42,8 +42,29 @@ public class CustomerRepositoryImpl implements CustomerRepository {
 	}
 
 
+	@Override
+	public Customers getCustomersById(int customerId) {
+		Session session = entityManager.unwrap(Session.class);
+		String queryString = "from Customers c where c.customerId=:customerId";
+		Query<Customers> query = session.createQuery(queryString);
+		query.setLong("customerId", customerId);
+		
+		Customers customer = (Customers) query.getSingleResult();
+		
+		if(customer!= null)
+		{
+			return customer;
+		}
+		else
+		{
+			throw new javax.persistence.NoResultException("CustomerId is Not In The DB");
+		}
+	}
+	}
+
+
 
 
 	
-	}
+
 	
