@@ -52,23 +52,23 @@ public class EventsWebController {
 	public boolean removeEvent(@PathVariable int eventId) {
 		return service.removeEvent(eventId);
 	}
-  @GetMapping("/eventname")
-	public Events getEventsByName(@RequestParam String eventName)
+  @GetMapping("/eventname/{eventName}/{theatreCity}")
+	public Events getEventsByName(@PathVariable String eventName,@PathVariable String theatreCity)
 	{
-		return service.getEventsByName(eventName);
+		return service.getEventsByName(eventName,theatreCity);
 		
 	}
   
-  @GetMapping("/eventg")
-	public List<Events> getEventsByGenre(@RequestParam String eventGenre)
+  @GetMapping("/eventg/{eventGenre}/{theatreCity}")
+	public List<Events> getEventsByGenre(@PathVariable String eventGenre,@PathVariable String theatreCity)
 	{
-		return service.getEventsByGenre(eventGenre);
+		return service.getEventsByGenre(eventGenre,theatreCity);
 	}
   
-  @GetMapping("/eventl")
-	public List<Events> getEventsByLanguage(@RequestParam String eventLanguage)
+  @GetMapping("/eventl/{eventLanguage}/{theatreCity}")
+	public List<Events> getEventsByLanguage(@PathVariable String eventLanguage,@PathVariable String theatreCity)
 	{
-		return service.getEventsByLanguage(eventLanguage);
+		return service.getEventsByLanguage(eventLanguage,theatreCity);
 	}
 
 }

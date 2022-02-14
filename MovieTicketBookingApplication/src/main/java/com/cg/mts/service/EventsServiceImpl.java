@@ -33,15 +33,15 @@ public class EventsServiceImpl implements IEventsService{
 	}
 
 	@Override
-	public List<Events> getEventsByGenre(String eventGenre) {
+	public List<Events> getEventsByGenre(String eventGenre,String theatreCity) {
 		// TODO Auto-generated method stub
-		return repository.getEventsByGenre(eventGenre);
+		return repository.getEventsByGenre(eventGenre,theatreCity);
 	}
 
 	@Override
-	public List<Events> getEventsByLanguage(String eventLanguage) {
+	public List<Events> getEventsByLanguage(String eventLanguage,String theatreCity) {
 		// TODO Auto-generated method stub
-		return repository.getEventsByLanguage(eventLanguage);
+		return repository.getEventsByLanguage(eventLanguage,theatreCity);
 	}
 
 
@@ -59,9 +59,9 @@ public class EventsServiceImpl implements IEventsService{
 	}
 
 	@Override
-	public Events getEventsByName(String eventName) {
+	public Events getEventsByName(String eventName,String theatreCity) {
 		// TODO Auto-generated method stub
-		return repository.getEventsByName(eventName);
+		return repository.getEventsByName(eventName,theatreCity);
 	}
 
 

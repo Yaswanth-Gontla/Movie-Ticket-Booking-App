@@ -15,7 +15,7 @@ public interface IEventsService {
 	public Events createEvents(Events events);
 	public boolean checkEventsById(int eventId);
 	
-	public List<Events> getEventsByGenre(String eventGenre);
-	public List<Events> getEventsByLanguage(String eventLanguage);
-	public Events getEventsByName(String eventName);
+	public List<Events> getEventsByGenre(String eventGenre,String theatreCity);
+	public List<Events> getEventsByLanguage(String eventLanguage,String theatreCity);
+	public Events getEventsByName(String eventName,String theatreCity);
 }

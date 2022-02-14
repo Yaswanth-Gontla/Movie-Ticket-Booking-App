@@ -29,7 +29,7 @@ public class CustomMoviesRepositoryImpl implements CustomMoviesRepository {
 		query.setString("movieLanguage", movieLanguage);
 		
 		List<Movies>  movies = (List<Movies>) query.getResultList();
-		
+		List<Movies> finalMovies = new ArrayList<Movies>();
 		if(movies != null)
 		{
 			for (Movies movie : movies) {
@@ -42,9 +42,14 @@ public class CustomMoviesRepositoryImpl implements CustomMoviesRepository {
 						locationTheaters.add(theater);
 					}
 				}
-				movie.setTheaters(locationTheaters);
+				if(locationTheaters.size()!=0)
+				{
+					movie.setTheaters(locationTheaters);
+					finalMovies.add(movie);
+				}
+				
 			}
-			return movies;
+			return finalMovies;
 		}
 		else
 		{
@@ -73,7 +78,12 @@ public class CustomMoviesRepositoryImpl implements CustomMoviesRepository {
 					locationTheaters.add(theater);
 				}
 			}
-			movies.setTheaters(locationTheaters);
+			if(locationTheaters.size()!=0)
+			{
+				movies.setTheaters(locationTheaters);
+			}
+			else
+				throw new javax.persistence.NoResultException("Movie Name is Not In The current Location");
 			//System.out.println(movies);
 			return movies;
 		}
