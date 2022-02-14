@@ -101,3 +101,11 @@ INSERT INTO movieticketsbooking.movies_theater_info VALUES(1000,201);
     "movieDescription": "Marvel",
     "theaters": []
 }
+
+
+
+customer
+
+INSERT INTO `movieticketsbooking`.`customers` VALUES ('1000', 'Arjun', '9857456274', '4', 'abc');
+INSERT INTO `movieticketsbooking`.`customers` VALUES ('1001', 'Ram', '8745614274', '2', 'qwer');
+INSERT INTO `movieticketsbooking`.`customers` VALUES ('1002', 'ravi', '7546824854', '1', 'dsaa');
