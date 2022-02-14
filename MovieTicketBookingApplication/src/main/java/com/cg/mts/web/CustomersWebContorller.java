@@ -21,7 +21,7 @@ public class CustomersWebContorller {
 	@Autowired
 	ICustomersService service;
 	
-	@GetMapping("/customer/{customerId}")
+	@GetMapping("/customers/{customerId}")
 	public Customers getCustomerId(@PathVariable int customerId)
 	{
 		return service.getCustomerById(customerId);
@@ -33,7 +33,8 @@ public class CustomersWebContorller {
 		return true;
 	}
 	@DeleteMapping("/customer/{customerId}")
-	public boolean removeCustomer(@PathVariable int customerId) {
+	public boolean removeCustomer(@PathVariable int customerId) 
+	{
 		return service.removeCustomerById(customerId);
 	}
 	@GetMapping("/customers")
@@ -41,4 +42,11 @@ public class CustomersWebContorller {
 	{
 		return service.getAllCustomers();
 	}
+	@GetMapping("/customer1/{customerName}")
+	public Customers getCustomerByName(@PathVariable String customerName)
+	{
+		return service.getCustomerByName(customerName);
+	}
+	
+	
 }
