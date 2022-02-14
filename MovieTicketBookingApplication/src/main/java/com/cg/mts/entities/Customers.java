@@ -11,7 +11,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -36,12 +35,6 @@ public class Customers {
 			joinColumns=@JoinColumn(name="customerdetails"),
 			inverseJoinColumns=@JoinColumn(name="moviedetails"))
 	private List<Movies> movies;
-	@OneToMany(cascade=CascadeType.ALL)
-	@JoinTable(
-			name="Customer_Booking_Info",
-			joinColumns=@JoinColumn(name="customerdetails"),
-			inverseJoinColumns=@JoinColumn(name="bookingdetails"))
-	private List<Booking> booking;
 	public int getCustomerId() {
 		return customerId;
 	}
@@ -78,12 +71,6 @@ public class Customers {
 	public void setEvents(List<Events> events) {
 		this.events = events;
 	}
-	public List<Booking> getBooking() {
-		return booking;
-	}
-	public void setBooking(List<Booking> booking) {
-		this.booking = booking;
-	}
 	public List<Movies> getMovies() {
 		return movies;
 	}
@@ -91,7 +78,7 @@ public class Customers {
 		this.movies = movies;
 	}
 	public Customers(int customerId, String password, String customerName, String mobileNumber, int noOfTickets,
-			List<Events> events, List<Movies> movies, List<Booking> booking) {
+			List<Events> events, List<Movies> movies) {
 		super();
 		this.customerId = customerId;
 		this.password = password;
@@ -100,7 +87,6 @@ public class Customers {
 		this.noOfTickets = noOfTickets;
 		this.events = events;
 		this.movies = movies;
-		this.booking = booking;
 	}
 	public Customers() {
 		super();
@@ -108,7 +94,7 @@ public class Customers {
 	}
 	@Override
 	public int hashCode() {
-		return Objects.hash(booking, customerId, customerName, events, mobileNumber, movies, noOfTickets, password);
+		return Objects.hash(customerId, customerName, events, mobileNumber, movies, noOfTickets, password);
 	}
 	@Override
 	public boolean equals(Object obj) {
@@ -119,18 +105,17 @@ public class Customers {
 		if (getClass() != obj.getClass())
 			return false;
 		Customers other = (Customers) obj;
-		return Objects.equals(booking, other.booking) && Objects.equals(customerId, other.customerId)
-				&& Objects.equals(customerName, other.customerName) && Objects.equals(events, other.events)
-				&& Objects.equals(mobileNumber, other.mobileNumber) && Objects.equals(movies, other.movies)
-				&& noOfTickets == other.noOfTickets && Objects.equals(password, other.password);
+		return customerId == other.customerId && Objects.equals(customerName, other.customerName)
+				&& Objects.equals(events, other.events) && Objects.equals(mobileNumber, other.mobileNumber)
+				&& Objects.equals(movies, other.movies) && noOfTickets == other.noOfTickets
+				&& Objects.equals(password, other.password);
 	}
 	@Override
 	public String toString() {
 		return "Customers [customerId=" + customerId + ", password=" + password + ", customerName=" + customerName
 				+ ", mobileNumber=" + mobileNumber + ", noOfTickets=" + noOfTickets + ", events=" + events + ", movies="
-				+ movies + ", booking=" + booking + "]";
+				+ movies + "]";
 	}
-
-    
+	
 	
 }
