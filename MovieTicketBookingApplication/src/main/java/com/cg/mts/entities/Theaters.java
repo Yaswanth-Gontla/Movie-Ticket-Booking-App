@@ -33,6 +33,7 @@ public class Theaters {
 			joinColumns=@JoinColumn(name="theaterdetails"),
 			inverseJoinColumns=@JoinColumn(name="eventdetails"))
 	private List<Events> events;
+	
 	@ManyToMany(cascade=CascadeType.ALL)
 	@JoinTable(
 			name="Movies_Theater_Info",

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.cg.mts.entities.Movies;
+import com.cg.mts.entities.Theaters;
 
 @Repository
 public class CustomMoviesRepositoryImpl implements CustomMoviesRepository {
@@ -20,18 +21,30 @@ public class CustomMoviesRepositoryImpl implements CustomMoviesRepository {
 	EntityManager entityManager;
 
 	@Override
-	public List<Movies> getMoviesByLanguage(String movieLanguage) {
+	public List<Movies> getMoviesByLanguage(String movieLanguage,String theatreCity) {
 		// TODO Auto-generated method stub
 		Session session = entityManager.unwrap(Session.class);
 		String queryString = "from Movies m where m.movieLanguage=:movieLanguage";
 		Query<Movies> query = session.createQuery(queryString);
 		query.setString("movieLanguage", movieLanguage);
 		
-		List<Movies>  list = (List<Movies>) query.getResultList();
+		List<Movies>  movies = (List<Movies>) query.getResultList();
 		
-		if(list != null)
+		if(movies != null)
 		{
-			return list;
+			for (Movies movie : movies) {
+				List<Theaters> theaters = movie.getTheaters();
+				List<Theaters> locationTheaters = new ArrayList<Theaters>();
+				for (Theaters theater : theaters) {
+					String location = theater.getTheatreCity();
+					if(location.equalsIgnoreCase(theatreCity))
+					{
+						locationTheaters.add(theater);
+					}
+				}
+				movie.setTheaters(locationTheaters);
+			}
+			return movies;
 		}
 		else
 		{
@@ -40,7 +53,7 @@ public class CustomMoviesRepositoryImpl implements CustomMoviesRepository {
 	}
 
 	@Override
-	public Movies getMoviesByName(String movieName) {
+	public Movies getMoviesByName(String movieName,String theatreCity) {
 		
 		Session session = entityManager.unwrap(Session.class);
 		String queryString = "from Movies m where m.movieName=:movieName";
@@ -51,6 +64,17 @@ public class CustomMoviesRepositoryImpl implements CustomMoviesRepository {
 		
 		if(movies!= null)
 		{
+			List<Theaters> theaters = movies.getTheaters();
+			List<Theaters> locationTheaters = new ArrayList<Theaters>();
+			for (Theaters theater : theaters) {
+				String location = theater.getTheatreCity();
+				if(location.equalsIgnoreCase(theatreCity))
+				{
+					locationTheaters.add(theater);
+				}
+			}
+			movies.setTheaters(locationTheaters);
+			//System.out.println(movies);
 			return movies;
 		}
 		else

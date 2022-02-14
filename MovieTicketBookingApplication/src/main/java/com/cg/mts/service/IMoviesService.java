@@ -13,8 +13,8 @@ public interface IMoviesService {
 	public List<Movies> viewMovieList();
 	public boolean removeMovie(int movieId);
 	
-	public List<Movies> getMoviesByLanguage(String movieLanguage);
-	public Movies getMoviesByName(String movieName);
+	public List<Movies> getMoviesByLanguage(String movieLanguage,String theatreCity);
+	public Movies getMoviesByName(String movieName, String theatreCity);
 	
 	
 }

@@ -47,16 +47,16 @@ public class MoviesWebController {
 		return service.removeMovie(movieId);		
 	}
 	
-	@GetMapping("/movielang")
-	public List<Movies> getMoviesByLanguage(@RequestParam String movieLanguage)
+	@GetMapping("/movielang/{movieLanguage}/{theatreCity}")
+	public List<Movies> getMoviesByLanguage(@PathVariable String movieLanguage,@PathVariable String theatreCity)
 	{
-		return service.getMoviesByLanguage(movieLanguage);
+		return service.getMoviesByLanguage(movieLanguage,theatreCity);
 	}
 	
-	@GetMapping("/moviename")
-	public Movies getMoviesByName(@RequestParam String movieName)
+	@GetMapping("/moviename/{movieName}/{theatreCity}")
+	public Movies getMoviesByName(@PathVariable String movieName,@PathVariable String theatreCity)
 	{
-		return service.getMoviesByName(movieName);
+		return service.getMoviesByName(movieName,theatreCity);
 		
 	}
 	

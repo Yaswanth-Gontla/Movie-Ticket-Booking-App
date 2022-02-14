@@ -9,6 +9,6 @@ import com.cg.mts.entities.Movies;
 @Repository
 public interface CustomMoviesRepository {
 
-	public List<Movies> getMoviesByLanguage(String movieLanguage);
-	public Movies getMoviesByName(String movieName);
+	public List<Movies> getMoviesByLanguage(String movieLanguage,String theatreCity);
+	public Movies getMoviesByName(String movieName,String theatreCity);
 }

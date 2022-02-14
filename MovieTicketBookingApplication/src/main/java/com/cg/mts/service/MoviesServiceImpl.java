@@ -40,15 +40,15 @@ public class MoviesServiceImpl implements IMoviesService {
 	}
 
 	@Override
-	public List<Movies> getMoviesByLanguage(String movieLanguage) {
+	public List<Movies> getMoviesByLanguage(String movieLanguage,String theatreCity) {
 		// TODO Auto-generated method stub
-		return repository.getMoviesByLanguage(movieLanguage);
+		return repository.getMoviesByLanguage(movieLanguage,theatreCity);
 	}
 
 	@Override
-	public Movies getMoviesByName(String movieName) {
+	public Movies getMoviesByName(String movieName,String theatreCity) {
 		// TODO Auto-generated method stub
-		return repository.getMoviesByName(movieName);
+		return repository.getMoviesByName(movieName,theatreCity);
 	}
 
 }
