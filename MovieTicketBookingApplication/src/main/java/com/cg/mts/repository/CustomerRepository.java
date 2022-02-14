@@ -9,7 +9,9 @@ import com.cg.mts.entities.Customers;
 
 @Repository
 public interface CustomerRepository {
-	public Customers getCustomerById(int customerId);
+	public Customers getCustomerByName(String customerName);
+
+
 	
 
 
