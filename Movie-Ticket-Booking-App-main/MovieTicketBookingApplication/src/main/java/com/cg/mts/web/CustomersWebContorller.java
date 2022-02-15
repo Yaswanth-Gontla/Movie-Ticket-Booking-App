@@ -25,6 +25,11 @@ public class CustomersWebContorller {
 	{
 		return service.getCustomerById(customerId);
 	}
+	@GetMapping("/getcustomers/{customerName}")
+	public Customers getCustomerByName(@PathVariable String customerName)
+	{
+		return service.getCustomerByName(customerName);
+	}
 	@PostMapping("/addcustomer")
 	public boolean createCustomer(@RequestBody Customers c)
 	{
