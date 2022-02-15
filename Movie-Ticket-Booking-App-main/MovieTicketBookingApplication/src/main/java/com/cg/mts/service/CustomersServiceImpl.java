@@ -46,7 +46,7 @@ public class CustomersServiceImpl implements ICustomersService{
 	}
 
 	@Override
-	public CustomersInfoDTO saveEvents(CustomersSavePostDTO customerDto) {
+	public CustomersInfoDTO saveCustomers(CustomersSavePostDTO customerDto) {
 		Customers cu=dtoConvertion.getCustomersFromPostCustomersDTO(customerDto);
 		Customers savedObj=repository.save(cu);
 		CustomersInfoDTO dtoObj=dtoConvertion.getCustomersInfoDTO(savedObj);

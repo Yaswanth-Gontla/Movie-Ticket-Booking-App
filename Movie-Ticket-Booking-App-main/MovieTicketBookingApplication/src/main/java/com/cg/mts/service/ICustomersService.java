@@ -15,7 +15,7 @@ public interface ICustomersService {
 	public List<Customers> getAllCustomers();
 	public boolean removeCustomerById(int customerId);
 	public Customers getCustomerById(int customerId);
-	public CustomersInfoDTO saveEvents(CustomersSavePostDTO eventsDto);
+	public CustomersInfoDTO saveCustomers(CustomersSavePostDTO eventsDto);
 
 	
 }
