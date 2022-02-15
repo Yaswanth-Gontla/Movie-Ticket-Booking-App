@@ -14,7 +14,9 @@ public interface ICustomersService {
 	public Customers createCustomer(Customers customer);
 	public List<Customers> getAllCustomers();
 	public boolean removeCustomerById(int customerId);
-	public Customers getCustomerById(int customerId);
+	public Customers getCustomerById(int customerId);	
+	public Customers getCustomerByName(String customerName);
+
 	public CustomersInfoDTO saveCustomers(CustomersSavePostDTO eventsDto);
 
 	

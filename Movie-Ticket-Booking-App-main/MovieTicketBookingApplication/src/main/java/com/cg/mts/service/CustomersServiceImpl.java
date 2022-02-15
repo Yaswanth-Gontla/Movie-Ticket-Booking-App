@@ -44,6 +44,10 @@ public class CustomersServiceImpl implements ICustomersService{
 		// TODO Auto-generated method stub
 		return repository.findById(customerId).get() ;
 	}
+	@Override
+	public Customers getCustomerByName(String customerName) {
+		return repository.getCustomerByName(customerName);
+	}
 
 	@Override
 	public CustomersInfoDTO saveCustomers(CustomersSavePostDTO customerDto) {
