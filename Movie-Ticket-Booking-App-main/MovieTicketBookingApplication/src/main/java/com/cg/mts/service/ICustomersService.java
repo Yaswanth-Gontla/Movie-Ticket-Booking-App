@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.cg.mts.dto.CustomersInfoDTO;
+import com.cg.mts.dto.CustomersSavePostDTO;
 import com.cg.mts.entities.Customers;
 
 @Service
@@ -13,5 +15,7 @@ public interface ICustomersService {
 	public List<Customers> getAllCustomers();
 	public boolean removeCustomerById(int customerId);
 	public Customers getCustomerById(int customerId);
+	public CustomersInfoDTO saveEvents(CustomersSavePostDTO eventsDto);
+
 	
 }
