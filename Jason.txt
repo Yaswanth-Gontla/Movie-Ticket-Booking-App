@@ -109,6 +109,7 @@ INSERT INTO `movieticketsbooking`.`movies` (`movie_id`, `movie_description`, `mo
 {
     "movieName": "Train to busan",
     "movieGenre": "Thriller",
+    "cansorRating":"U",
     "movieHours": "1",
     "movieLanguage": "English",
     "movieDescription": "Zombies",
@@ -119,6 +120,7 @@ INSERT INTO `movieticketsbooking`.`movies` (`movie_id`, `movie_description`, `mo
 {
     "movieName": "Red Notice",
     "movieGenre": "Comedy",
+    "cansorRating":"U",
     "movieHours": "2",
     "movieLanguage": "Telugu",
     "movieDescription": "Hiest",
@@ -128,6 +130,7 @@ INSERT INTO `movieticketsbooking`.`movies` (`movie_id`, `movie_description`, `mo
 {
     "movieName": "Rampage",
     "movieGenre": "Action",
+    "cansorRating":"UA",
     "movieHours": "2",
     "movieLanguage": "English",
     "movieDescription": "Scientific",
@@ -136,6 +139,7 @@ INSERT INTO `movieticketsbooking`.`movies` (`movie_id`, `movie_description`, `mo
 {
     "movieName": "Avengers End game",
     "movieGenre": "SuperHero",
+    "cansorRating":"A",
     "movieHours": "1",
     "movieLanguage": "English",
     "movieDescription": "Marvel",
@@ -144,6 +148,7 @@ INSERT INTO `movieticketsbooking`.`movies` (`movie_id`, `movie_description`, `mo
 {
     "movieName": "Iron man",
     "movieGenre": "SuperHero",
+    "cansorRating":"A",
     "movieHours": "1",
     "movieLanguage": "Hindi",
     "movieDescription": "Marvel",

@@ -1,5 +1,4 @@
 package com.cg.mts.web;
-
 import java.util.List;
 
 import javax.validation.Valid;
@@ -28,7 +27,6 @@ import com.cg.mts.exceptions.InvalidMovieDurationException;
 import com.cg.mts.service.IAdminService;
 import com.cg.mts.service.IEventsService;
 import com.cg.mts.service.IMoviesService;
-import com.cg.mts.service.ITheatersService;
 
 @RestController
 @RequestMapping("/app")
@@ -42,7 +40,6 @@ public class AdminWebController {
 	
 	@Autowired	
 	IEventsService eventService;
-	
 
 	@PostMapping("/addadmin")
 	public boolean addAdmin(@RequestBody Admin admin)
@@ -79,7 +76,7 @@ public class AdminWebController {
 		return movieService.viewMovies(movieId);
 	}
 	
-	@GetMapping("/getmovies")
+	@GetMapping("/admingetmovies")
 	public List<Movies> viewAllMovies()
 	{
 		return movieService.viewMovieList();
@@ -97,7 +94,18 @@ public class AdminWebController {
 	 	EventsInfoDTO dto=eventService.saveEvents(e);
 	 	return new ResponseEntity<EventsInfoDTO>(dto,HttpStatus.OK);
 	}
-	  
+	@GetMapping("/adminmovielang/{movieLanguage}/{theatreCity}")
+	public List<Movies> getMoviesByLanguage(@PathVariable String movieLanguage,@PathVariable String theatreCity)
+	{
+		return movieService.getMoviesByLanguage(movieLanguage,theatreCity);
+	}
+	
+	@GetMapping("/adminmoviename/{movieName}/{theatreCity}")
+	public Movies getMoviesByName(@PathVariable String movieName,@PathVariable String theatreCity)
+	{
+		return movieService.getMoviesByName(movieName,theatreCity);
+		
+	}
 	@PostMapping("/adminaddevent")
 	public boolean createEvents(@Valid  @RequestBody Events events) throws InvalidEventDurationException
 	{
@@ -113,7 +121,7 @@ public class AdminWebController {
 		  	return eventService.viewEvents(eventId);
 		}
 	  
-	  @GetMapping("/getevents")
+	  @GetMapping("/admingetevents")
 		public List<Events> viewAllEvents()
 		{
 			return eventService.viewAllEvents();
@@ -122,5 +130,24 @@ public class AdminWebController {
 	  @DeleteMapping("/adminremoveevent/{eventId}")
 		public boolean removeEvent(@PathVariable int eventId) {
 			return eventService.removeEvent(eventId);
+		}
+	  
+	  @GetMapping("/admineventname/{eventName}/{theatreCity}")
+		public Events getEventsByName(@PathVariable String eventName,@PathVariable String theatreCity)
+		{
+			return eventService.getEventsByName(eventName,theatreCity);
+			
+		}
+	  
+	  @GetMapping("/admineventg/{eventGenre}/{theatreCity}")
+		public List<Events> getEventsByGenre(@PathVariable String eventGenre,@PathVariable String theatreCity)
+		{
+			return eventService.getEventsByGenre(eventGenre,theatreCity);
+		}
+	  
+	  @GetMapping("/admineventl/{eventLanguage}/{theatreCity}")
+		public List<Events> getEventsByLanguage(@PathVariable String eventLanguage,@PathVariable String theatreCity)
+		{
+			return eventService.getEventsByLanguage(eventLanguage,theatreCity);
 		}
 }
