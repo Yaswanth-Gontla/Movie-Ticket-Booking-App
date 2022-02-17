@@ -4,6 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.cg.mts.dto.CustomersInfoDTO;
+import com.cg.mts.dto.CustomersSavePostDTO;
 import com.cg.mts.entities.Customers;
 import com.cg.mts.entities.Events;
 import com.cg.mts.entities.Movies;
@@ -16,4 +18,7 @@ public interface ICustomersService {
 	public boolean removeCustomerById(int customerId);
 	public Customers getCustomerById(int customerId);
 	public Customers getCustomerByName(String customerName);
+	
+	public CustomersInfoDTO saveCustomers(CustomersSavePostDTO customerDto);
+
 }
